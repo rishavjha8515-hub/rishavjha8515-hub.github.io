@@ -175,6 +175,40 @@
     
   }
 
+  .hero-proof {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    max-width: 620px;
+    margin-top: 32px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .proof-item {
+    background: rgba(17,17,24,0.88);
+    padding: 18px;
+  }
+
+  .proof-value {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 26px;
+    line-height: 1;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .proof-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   .btn {
     font-family: 'Courier New', Courier, monospace;
     font-size: 12px;
@@ -233,6 +267,62 @@
     line-height: 1.15;
     margin-bottom: 24px;
     letter-spacing: -0.02em;
+  }
+
+  /* Profile snapshot */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .profile-panel {
+    background: rgba(17,17,24,0.9);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+  }
+
+  .profile-panel h3 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent2);
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .profile-panel p {
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .focus-list {
+    list-style: none;
+    display: grid;
+    gap: 14px;
+  }
+
+  .focus-list li {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.55;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .focus-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
   }
 
   /* Research card */
@@ -357,7 +447,7 @@
   /* Stats row */
   .stats-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
@@ -458,6 +548,8 @@
 
   @media (max-width: 600px) {
     .stats-row { grid-template-columns: 1fr; }
+    .hero-proof { grid-template-columns: 1fr; }
+    .profile-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .hero-cta { flex-direction: column; }
   }
@@ -472,6 +564,7 @@
   <div class="container">
     <a class="nav-logo" href="#">RJ</a>
     <ul class="nav-links">
+      <li><a href="#profile">Profile</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#awards">Awards</a></li>
       <li><a href="#about">About</a></li>
@@ -488,23 +581,63 @@
       <h1 class="hero-name">Rishav <em>Jha</em></h1>
       <p class="hero-subtitle">Physics & Astronomy · Quantum Decoherence · Black Holes</p>
       <p class="hero-desc">
-        16-year-old researcher studying <span>quantum decoherence in Reissner-Nordström spacetime</span>.
-        Representing Team India at Regeneron ISEF 2026, Phoenix, Arizona.
+        16-year-old independent researcher building open computational tools for <span>quantum decoherence in Reissner-Nordström spacetime</span>.
+        Representing Team India at Regeneron ISEF 2026 in Phoenix, Arizona.
       </p>
       <div class="hero-badges">
         <span class="badge badge-purple">ISEF 2026 · Team India</span>
         <span class="badge badge-gold">IRIS Silver Medal</span>
         <span class="badge badge-orange">IRO Semifinalist · Intl Research Olympiad</span>
+        <span class="badge badge-gold">IAAC 2026 · Pre-Finalist</span>
         <span class="badge badge-purple">Indigo Research Scholar</span>
         <span class="badge badge-orange">IISc Lab2Launch · 1st Place</span>
       </div>
       <div class="hero-cta">
         <a href="https://doi.org/10.5281/zenodo.18604527" target="_blank" class="btn btn-primary">View Research ↗</a>
+        <a href="https://physicxports.vercel.app/" target="_blank" class="btn btn-ghost">PhysicXports ↗</a>
         <a href="https://github.com/rishavjha8515-hub" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-item">
+          <span class="proof-value">5,200+</span>
+          <span class="proof-label">Research accesses</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-value">30+</span>
+          <span class="proof-label">Countries reached</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-value">24</span>
+          <span class="proof-label">Team India ISEF cohort</span>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Profile -->
+<section id="profile">
+  <div class="container">
+    <p class="section-label fade-in">Profile</p>
+    <h2 class="section-title fade-in">Independent Work,<br>International Recognition</h2>
+    <div class="profile-grid">
+      <div class="profile-panel fade-in">
+        <h3>Research Identity</h3>
+        <p>
+          I work at the intersection of physics, computation, and education: turning difficult theoretical ideas into interactive models that students can test, question, and understand.
+        </p>
+      </div>
+      <div class="profile-panel fade-in">
+        <h3>Current Focus</h3>
+        <ul class="focus-list">
+          <li>Quantum decoherence near charged black holes and extreme gravitational fields.</li>
+          <li>Open research tools built with HTML5, JavaScript, and transparent public documentation.</li>
+          <li>Making advanced physics more accessible through measurable learning outcomes.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Research -->
 <section id="research">
@@ -566,6 +699,10 @@
       <div class="stat">
         <span class="stat-number">1.80</span>
         <span class="stat-label">Cohen's d</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">27</span>
+        <span class="stat-label">Study Participants</span>
       </div>
     </div>
   </div>
@@ -680,6 +817,10 @@
       <div class="contact-line">
         <span class="contact-label">RESEARCH</span>
         <span class="contact-value"><a href="https://doi.org/10.5281/zenodo.18604527" target="_blank">Zenodo · DOI 10.5281/zenodo.18604527</a></span>
+      </div>
+      <div class="contact-line">
+        <span class="contact-label">PROJECT</span>
+        <span class="contact-value"><a href="https://physicxports.vercel.app/" target="_blank">PhysicXports</a></span>
       </div>
       <div class="contact-line">
         <span class="contact-label">LOCATION</span>
